@@ -4,7 +4,14 @@ This project demonstrates how to use JavaScript callbacks to execute a series of
 
 ## Files
 
-- **callbackVersion.js**: Contains all the chore functions and the main function that chains them together using callbacks.
+- **callbackVersion.js**: 
+   Contains all the chore functions and the main function that chains them together using callbacks.
+
+- **promiseVersion.js**:
+   Contains all the chore functions and the main function that chains them together using promises.
+
+- **asyncAwaitVersion.js**: 
+   Contains all the chore functions and the main function that chains them together using promises upadted to use async await.
 
 ## How It Works
 
@@ -14,10 +21,13 @@ This project demonstrates how to use JavaScript callbacks to execute a series of
    - `trimHedges`
    - `collectWood`
    - `waterGarden`  
-   Each function takes a person's name and a callback. Then they, using `setTimeout`, randomly determine if the person is too tired to continue.
+   Each function takes a person's name and a callback, or promise depending on the version. Then they, using `setTimeout`, randomly determine if the person is too tired to continue.
 
 2. **Chaining with Callbacks**:  
-   The `doAllChores` function starts the chain by calling `mowYard`, which then calls the next chore in its callback. If the person becomes too tired at any step the chain stops.
+   The `doAllChores` function starts the chain by calling `mowYard`, which then calls the next chore in its callback or promise. If the person becomes too tired at any step the chain stops.
+
+   **Chaining with Promises**:
+   The `doAllChores` function starts by calling `mowYard`. If the promise is resolved, the next chore function is called. If the person becomes to tired the promise is rejected and the chain stops.  
 
 3. **Completion Message**:  
    If all chores are completed the following message is logged:  
@@ -25,8 +35,11 @@ This project demonstrates how to use JavaScript callbacks to execute a series of
 
 ## Example
 
-Run the script with Node.js:
+Run one of the scripts with Node.js:
 
 ```bash
-node callbackVersion.js
+node callbackVersion.js 
+node promiseVersion.js
+node asyncAwaitVersion.js
 ```
+
